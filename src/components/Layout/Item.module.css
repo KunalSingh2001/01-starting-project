@@ -33,3 +33,10 @@
   border-top: 1px solid #ddd;
   margin: 1rem 0;
 }
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* space between input and button */
+  justify-content: flex-end; /* push to right */
+}

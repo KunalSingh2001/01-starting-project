@@ -1,0 +1,20 @@
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* space between input and button */
+  justify-content: flex-end; /* push to right */
+}
+
+.button {
+  background-color: #8a2b06;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #641e03;
+}
