@@ -1,0 +1,35 @@
+.meals-list {
+  max-width: 1000px;         /* keeps it narrow, like a card */
+  margin: 2rem auto;        /* centers on page */
+  background: white;        /* white background */
+  border-radius: 12px;      /* rounded corners */
+  padding: 1rem 2rem;       /* inner spacing */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* soft shadow */
+}
+
+.meal-item {
+  padding: 1rem 0;
+}
+
+.meal-item h6 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.meal-item p {
+  font-style: italic;
+  color: #555;
+  margin: 0.25rem 0;
+}
+
+.meal-item .price {
+  color: #ad5502;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.meal-item hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1rem 0;
+}
