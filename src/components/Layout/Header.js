@@ -6,11 +6,12 @@ import Item from "./Item";
 import Box from "./Box";
 
 const Header = (props) => {
+  
   return (
     <Fragment>
       <header className={classes.header}>
         <h1>ReactMeals</h1>
-        <HeaderCartButton />
+        <HeaderCartButton  onClick={() => props.onShowCart(true)} />
       </header>
       <div className={classes["main-image"]}>
         <img src={meals} alt="Delicious food" />

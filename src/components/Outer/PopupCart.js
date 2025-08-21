@@ -2,7 +2,11 @@ import React from "react";
 import classes from "./PopupCart.module.css";
 import ReactDOM from "react-dom";
 
-function PopupCart() {
+function PopupCart(props) {
+    function CartHide() {
+        props.onClick(false);
+    }
+
   const backdrop = (
     <div className={classes["backdrop"]}></div>
   );
@@ -15,7 +19,7 @@ function PopupCart() {
         <span>35.62</span>
       </div>
       <div className={classes["actions"]}>
-        <button className={classes["close"]}>Close</button>
+        <button className={classes["close"]} onClick={CartHide}>Close</button>
         <button className={classes["order"]}>Order</button>
       </div>
     </div>
