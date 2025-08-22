@@ -3,7 +3,7 @@ import classes from "./PopupCart.module.css";
 import ReactDOM from "react-dom";
 import noteContext from "../Context/noteContext";
 function PopupCart(props) {
-  const cartData = useContext(noteContext);
+  const {cart, increaseQuantity, decreseQuantity} = useContext(noteContext);
   function CartHide() {
     props.onClick(false);
   }
@@ -12,19 +12,43 @@ function PopupCart(props) {
 
   const modal = (
     <div className={classes["modal"]}>
-      {cartData.length === 0 ? (
+      {cart.length === 0 ? (
         <p>No item yet!</p>
-			) : (
-				cartData.map((item) => (
-				<div key={item.id}>
-					<header>{item.name}</header>
-					<div className={classes["content"]}>
-					<span>Total Amount</span>
-					<span>{item.amount}</span>
-					</div>
-				</div>
-				))
-			)}
+      ) : (
+        cart.map((item) => (
+          <div className={classes["cart-item"]} key={item.id}>
+            <div>
+              <h3>{item.name}</h3>
+              <div className={classes["summary"]}>
+                <span className={classes["price"]}>${item.amount}</span>
+                <span className={classes["amount"]}>
+                  x{" "}
+                  <input
+                    type="number"
+                    className="cart-input"
+                    value={item.quantity}
+                    min="1"
+                  />
+                </span>
+              </div>
+            </div>
+            <div className={classes["actions-btns"]}>
+              <button onClick={() => decreseQuantity(item.id)}>-</button>
+              <button onClick={() => increaseQuantity(item.id)}>+</button>
+            </div>
+          </div>
+        ))
+      )}
+
+      <div className={classes["total"]}>
+        <span>Total Amount</span>
+        <span>
+          $
+          {cart
+            .reduce((acc, item) => acc + item.quantity * item.amount, 0)
+            .toFixed(2)}
+        </span>
+      </div>
 
       <div className={classes["actions"]}>
         <button className={classes["close"]} onClick={CartHide}>
